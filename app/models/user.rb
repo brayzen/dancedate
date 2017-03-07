@@ -23,5 +23,7 @@ class User < ActiveRecord::Base
   end
 
 	enum gender: [ :male, :female, :trans ]
-	enum role: [ :admin, :organizer, :user ]
+	enum interested_in: [ "m", "f", "b" ]
+	enum role: [ :admin, :organizer, :dancer ]
+
 end
