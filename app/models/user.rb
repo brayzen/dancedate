@@ -21,4 +21,9 @@ class User < ActiveRecord::Base
       last_name: info['last_name']
     })
   end
+
+	enum gender: [ :male, :female, :trans ]
+	enum interested_in: [ "m", "f", "b" ]
+	enum role: [ :admin, :organizer, :dancer ]
+
 end

@@ -11,18 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170222013706) do
-
-  create_table "addresses", force: :cascade do |t|
-    t.integer "legislator_id"
-    t.string  "line"
-    t.string  "city"
-    t.string  "state"
-    t.string  "zip"
-    t.integer "user_id"
-  end
-
-  add_index "addresses", ["user_id"], name: "index_addresses_on_user_id"
+ActiveRecord::Schema.define(version: 20170131214914) do
 
   create_table "authentication_providers", force: :cascade do |t|
     t.string   "name"
@@ -31,47 +20,6 @@ ActiveRecord::Schema.define(version: 20170222013706) do
   end
 
   add_index "authentication_providers", ["name"], name: "index_name_on_authentication_providers"
-
-  create_table "legislators", force: :cascade do |t|
-    t.string "bio_id"
-    t.string "first_name"
-    t.string "last_name"
-    t.date   "birthday"
-    t.string "gender"
-    t.string "religion"
-    t.string "position"
-    t.string "party"
-    t.date   "started"
-    t.string "state"
-    t.string "district"
-    t.string "url"
-    t.string "contact_form_url"
-    t.string "twitter_name"
-    t.string "facebook_name"
-    t.string "facebook_id"
-    t.string "youtube_id"
-    t.string "twitter_id"
-    t.string "official_name"
-    t.string "wikipedia"
-  end
-
-  add_index "legislators", ["last_name"], name: "index_legislators_on_last_name"
-
-  create_table "messages", force: :cascade do |t|
-    t.integer "topic_id"
-    t.integer "user_id"
-    t.string  "subject"
-    t.text    "body"
-  end
-
-  create_table "phones", force: :cascade do |t|
-    t.integer "legislator_id"
-    t.string  "number"
-  end
-
-  create_table "topics", force: :cascade do |t|
-    t.string "name"
-  end
 
   create_table "user_authentications", force: :cascade do |t|
     t.integer  "user_id"
@@ -98,10 +46,14 @@ ActiveRecord::Schema.define(version: 20170222013706) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
     t.string   "first_name"
     t.string   "last_name"
+    t.integer  "role"
+    t.integer  "gender"
+    t.integer  "interested_in"
+    t.string   "picture"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
