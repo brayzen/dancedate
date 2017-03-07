@@ -22,6 +22,6 @@ coverage/
 notes/
 
 #Vim buffer files
-**/*.swp
-**/*.swn
-**/*.swo
+/**/*.swp
+/**/*.swn
+/**/*.swo
